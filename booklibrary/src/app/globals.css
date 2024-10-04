@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero-heading {
+  font-size: 2rem;
+  width: 50vw;
+  color: black;
+  text-transform: capitalize;
+}
+.logout {
+  cursor: pointer;
+  -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
+  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
+}
+.logout:hover {
+  filter: none;
+}
+.hero-bg {
+  background: url("../assets/bg-2.jpg");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.hero-left {
+  width: 50vw;
+  padding: 5vw;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.hero-left > button:hover {
+  box-shadow: none;
+}
+.hero-left > div {
+  box-shadow: inset 3px 3px 3px gray;
+}
+.active {
+  border-bottom: 2px solid #8b5cf6;
+}
+.link {
+  display: flex;
+  margin-right: 20px;
+  gap: 1rem;
+}
+.link:hover {
+  transform: scaleX(1.1);
+  text-shadow: 3px 3px 3px gray;
+  transition: all 1s linear ease-in-out;
+}
+button {
+  margin-right: 10px;
+  cursor: pointer;
+}
+button:disabled {
+  box-shadow: none;
+  border: 1px solid gray;
+  color: gray;
+}
+button:disabled:hover {
+  box-shadow: none;
+  border: none;
+  color: gray;
+  background-color: white;
+  text-decoration: line-through;
+}
+.signup {
+  background-color: #8b5cf6;
+  color: white;
+}
+nav {
+  background-color: rgba(255, 255, 255, 0.37);
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 3px 3px 3px rgba(190, 190, 190, 0.459);
+  padding-right: 5%;
+  padding-left: 5%;
+  height: 80px;
+}
+h1 {
+  font-size: 2rem;
+}
+
+.menu-svg {
+  height: 45px;
+  fill: white;
+  display: none;
+}
+.menu-svg:hover {
+  fill: gray;
+
+  transform: scaleX(1.1);
+  text-shadow: 3px 3px 3px gray;
+  transition: all 1s linear ease-in-out;
+}
+.menu-h {
+  justify-content: flex-end;
+}
+
+.sec-two {
+  background-color: #8a5cf679;
+}
+.sec-two-left {
+  background-color: whitesmoke;
+  box-shadow: inset 2px 2px 2px white;
+}
+
+@media only screen and (max-width: 749px) {
+  .menu-h {
+    display: none;
+  }
+  .menu-svg {
+    display: block;
+  }
+  .menu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 10vh;
+    height: 90vh;
+    width: 100vw;
+    right: 0;
+    background-color: white;
+    padding: 3rem;
+    animation: 1s linear slidein;
+  }
+  .menu > ul {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media only screen and (min-width: 749px) {
+  .menu {
+    display: none;
+  }
+}
+@keyframes slidein {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
