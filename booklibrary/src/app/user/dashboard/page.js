@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useGetUserQuery } from "@/lib/services/authSlice";
 
 // import Main from "../../../components/Main";
-
+const allowedExtentoions = { image: ["jpg", "jpeg", "png", "webp"] };
 const Dashboard = () => {
   const [user, setUser] = useState();
   const { data, isSuccess } = useGetUserQuery();

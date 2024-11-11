@@ -1,5 +1,5 @@
 import React from "react";
-import CardTwo from "../../../components/Cardtwo";
+import CardTwo from "../../components/Cardtwo";
 import { getPostdata } from "@/lib/functions/fetchFunctions";
 // import { useEffect } from "react";
 

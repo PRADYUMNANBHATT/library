@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useLogoutUserMutation } from "@/lib/services/authSlice";
 import { useRouter } from "next/navigation";
-import logo from "@/public/vercel.svg";
+import logo from "@/public/logo.png";
 
 const varela = Varela({ subsets: ["latin"], weight: ["400"] });
 export const NavBar = () => {
@@ -36,7 +36,7 @@ export const NavBar = () => {
   return (
     <nav
       className={
-        "min-w-screen flex flex-row bg-transparent fixed  items-center  shadow-lg  " +
+        "min-w-screen max-w-screen flex flex-row bg-white fixed  items-center  shadow-lg  " +
         varela.className
       }
     >
@@ -97,10 +97,10 @@ export const NavBar = () => {
           ) : (
             <div>
               {" "}
-              <button className="pr-3  shadow-md shadow-slate-500 pl-3 border-2 hover:border-white hover:bg-violet-500 hover:text-white hover:pr-5 hover:pl-5 transition-all  rounded-lg border-white">
+              <button className="pr-3  shadow-md shadow-slate-500 pl-3 border-2 hover:border-white hover:bg-violet-500 hover:text-white hover:pr-5 hover:pl-5  border-white">
                 <Link href={"/login"}> Login</Link>
               </button>
-              <button className="pr-3 shadow-md signup shadow-slate-500 pl-3 border-2 border-white bg-violet-500 text-white hover:pr-5 hover:text-black hover:bg-white hover:pl-5 transition-all rounded-lg">
+              <button className="pr-3 shadow-md signup shadow-slate-500 pl-3 border-2 border-white bg-violet-500 text-white hover:pr-5 hover:text-black hover:bg-white hover:pl-5 ">
                 <Link href={"/signup"}> Signup</Link>
               </button>
             </div>

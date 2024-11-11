@@ -1,7 +1,7 @@
 // import { useParams } from "next/navigation";
 import React from "react";
-import PageViewCard from "../../../../components/PageViewCard";
-import CommentCard from "../../../../components/CommentCard";
+import PageViewCard from "../../../components/PageViewCard";
+import CommentCard from "../../../components/CommentCard";
 
 const PageView = ({ params: { id } }) => {
   return (

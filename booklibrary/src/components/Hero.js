@@ -11,63 +11,74 @@ const head = Headland_One({ subsets: ["latin"], weight: ["400"] });
 const sev = Sevillana({ subsets: ["latin"], weight: ["400"] });
 
 export default async function Hero() {
-  // let data = await fetch("https://dummyjson.com/products");
-  // let posts = await data.json();
-  // console.log(JSON.stringify(posts));
+  let data = await fetch("https://dummyjson.com/products");
+  let posts = await data.json();
+  let currentPage = 0;
+  const noOfproductPerPage = 10;
+  let x = Object.entries(posts.products);
+  let y = x.slice(currentPage, noOfproductPerPage);
+  console.log(y);
+
+  // let currentPost = await posts.slice(currentPage, noOfproductPerPage);
 
   return (
     <main>
-      <section className="flex min-h-screen flex-col items-center  align-middle justify-center p-24  hero-bg">
-        <div className=" flex pt-5 flex-row h-full  items-center justify-center text-center lg:w-full w-full">
+      <section className="flex min-h-screen max-w-screen flex-col items-center  align-middle justify-center hero-bg">
+        <div className=" flex pt-5 flex-row h-full hero-bg-bx  items-center justify-center text-center lg:w-full w-full">
           <div className="hero-left ">
             <h1 className={"hero-heading " + head.className}>
-              Lorem, ipsum dolor sit amet
+              Explore our vast variety of titles.
             </h1>
             <p>
-              Lorem ipsum dolor sit amet con@#sectetur adipisicing elit.
-              Blanditiis consequatur repellendus aliquid vitae. quaerat.
+              More than 600,000 titles including books, e-books, audio books,
+              periodicals and more..
             </p>
             <div className="flex flex-row w-full align-middle justify-evenly border-2 border-slate-700">
-              <div className={"flex flex-row align-middle justify-center p-2"}>
-                <svg
-                  viewBox="0 0 1024 1024"
-                  className="icon"
-                  width={44}
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="#000000"
-                >
-                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                  <g
-                    id="SVGRepo_tracerCarrier"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  ></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <path
-                      d="M21.333333 810.666667h981.333334v42.666666H21.333333zM533.333333 384h85.333334v341.333333h-85.333334zM661.333333 384h85.333334v341.333333h-85.333334zM789.333333 384h85.333334v341.333333h-85.333334zM405.333333 384h85.333334v341.333333h-85.333334zM277.333333 384h85.333334v341.333333h-85.333334zM149.333333 384h85.333334v341.333333H149.333333zM917.333333 341.333333H106.666667v-64l405.333333-192 405.333333 192zM106.666667 725.333333h810.666666v42.666667H106.666667z"
-                      fill="#FF9800"
-                    ></path>
-                    <path
-                      d="M533.333333 341.333333h85.333334v42.666667h-85.333334zM661.333333 341.333333h85.333334v42.666667h-85.333334zM789.333333 341.333333h85.333334v42.666667h-85.333334zM405.333333 341.333333h85.333334v42.666667h-85.333334zM277.333333 341.333333h85.333334v42.666667h-85.333334zM149.333333 341.333333h85.333334v42.666667H149.333333zM64 768h896v42.666667H64z"
-                      fill="#EF6C00"
-                    ></path>
-                    <path
-                      d="M512 234.666667m-42.666667 0a42.666667 42.666667 0 1 0 85.333334 0 42.666667 42.666667 0 1 0-85.333334 0Z"
-                      fill="#EF6C00"
-                    ></path>
-                  </g>
-                </svg>
-                <span className={"" + sev.className}>
-                  Offer a wide verity of books
-                </span>
+              <div className="flex flex-row align-middle justify-center p-2">
+                <form className="max-w-lg mx-auto">
+                  <div className="flex flex-row">
+                    <select className="focus:outline-none">
+                      <option>Open this select menu</option>
+                      <option>By Title</option>
+                      <option>By Author</option>
+                      <option>By Publisher</option>
+                      <option>By subject</option>
+                    </select>
+                    <div className="relative flex flex-row gap-3">
+                      <input
+                        type="search"
+                        id="search-dropdown"
+                        className=" focus:outline-none block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300"
+                        placeholder="Search Books..."
+                        required
+                      />
+                      <button
+                        type="submit"
+                        className="border-0 outline-none text-sm font-medium h-full text-gray  "
+                      >
+                        <svg
+                          className="w-4 h-4 "
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
-            <button className="mt-2  pr-3  shadow-md shadow-slate-500 pl-3 border-2 border-white bg-violet-500 text-white hover:pr-5 hover:pl-5 transition-all  rounded-lg ">
-              <Link href={"/login"}> Login</Link>
-            </button>
           </div>
-          <div>
+          <div className="hero-rgt">
             <Image
               src="/book.png"
               alt="Vercel Logo"
@@ -75,10 +86,11 @@ export default async function Hero() {
               height={600}
               width={600}
               priority
+              style={{ maxWidth: "100vw", width: "auto" }}
             />
           </div>
         </div>
-        <div className="flex flex-row gap-1">
+        <div className="flex flex-row gap-1 max-w-[100vw] overflow-hidden">
           <div
             className={
               "flex flex-row align-middle justify-center p-2 gap-3 text-white"
@@ -442,7 +454,7 @@ export default async function Hero() {
           </div>
         </div>
       </section>
-      <section className="flex min-h-screen sec-two flex-row max-w-[100vw]  items-center  align-middle justify-center ">
+      <section className="flex min-h-screen max-w-screen  sec-two flex-row max-w-[100vw] items-center  align-middle justify-center ">
         <div className="flex flex-col p-5 align-middle items-center justify-center">
           <h1 className="text-2xl">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia,
@@ -454,7 +466,7 @@ export default async function Hero() {
             quisquam commodi doloribus?
           </p>
         </div>
-        <div className="flex flex-col p-5 sec-two-left align-middle items-center justify-center ">
+        <div className="flex flex-col p-5 sec-two-left align-middle items-center justify-center rounded-lg">
           <h1 className=" text-white">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia,
             incidunt?
@@ -466,13 +478,16 @@ export default async function Hero() {
           </p>
         </div>
       </section>
-      <section>
-        {/* <div className="flex flex-row flex-wrap items-center justify-center align-middle gap-5 ">
-          {posts.products.map((post) => (
-            <Card key={post.id} post={post} />
+      <sectionc className="flex min-h-screen max-w-screen  sec-two flex-col max-w-[100vw] items-center  align-middle justify-center ">
+        <div className="flex items-center  align-middle justify-center pt-5 pb-10">
+          <h1>Library Recommendations. Something for everyone.</h1>
+        </div>
+        <div className="flex flex-row flex-wrap items-center justify-center align-middle gap-5 ">
+          {y.map((post) => (
+            <Card key={post.id} post={post[1]} />
           ))}
-        </div> */}
-      </section>
+        </div>
+      </sectionc>
     </main>
   );
 }

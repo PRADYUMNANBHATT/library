@@ -12,7 +12,7 @@ const sendEmailOtp = async (req, user) => {
   await transporter.sendMail({
     from: process.env.EMAIL_FROM,
     to: user.email,
-    subject: "verify your account",
+    subject: "Verify your account",
     html: `
     <h1>Dear ${user.name},</h1>
     <p></p>Thank you for registering with us Please verify your email account. 

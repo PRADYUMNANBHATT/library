@@ -1,6 +1,6 @@
-import Main from "@/../components/Main";
+import Main from "@/components/Main";
 
-import Hero from "../../components/Hero";
+import Hero from "@/components/Hero.js";
 
 export default function Home() {
   return (
