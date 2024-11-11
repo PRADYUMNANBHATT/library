@@ -1,1 +1,1 @@
-git library is a library app under development 
+library is a library app under development 
