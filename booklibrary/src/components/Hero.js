@@ -454,35 +454,12 @@ export default async function Hero() {
           </div>
         </div>
       </section>
-      <section className="flex min-h-screen max-w-screen  sec-two flex-row max-w-[100vw] items-center  align-middle justify-center ">
-        <div className="flex flex-col p-5 align-middle items-center justify-center">
-          <h1 className="text-2xl">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia,
-            incidunt?
-          </h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem
-            nulla incidunt corrupti explicabo qui recusandae saepe perspiciatis
-            quisquam commodi doloribus?
-          </p>
-        </div>
-        <div className="flex flex-col p-5 sec-two-left align-middle items-center justify-center rounded-lg">
-          <h1 className=" text-white">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia,
-            incidunt?
-          </h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem
-            nulla incidunt corrupti explicabo qui recusandae saepe perspiciatis
-            quisquam commodi doloribus?
-          </p>
-        </div>
-      </section>
+
       <sectionc className="flex min-h-screen max-w-screen  sec-two flex-col max-w-[100vw] items-center  align-middle justify-center ">
         <div className="flex items-center  align-middle justify-center pt-5 pb-10">
-          <h1>Library Recommendations. Something for everyone.</h1>
+          <h1 className="">Library Recommendations. Something for everyone.</h1>
         </div>
-        <div className="flex flex-row flex-wrap items-center justify-center align-middle gap-5 ">
+        <div className="flex flex-row flex-wrap items-center justify-center align-middle gap-5 pb-10">
           {y.map((post) => (
             <Card key={post.id} post={post[1]} />
           ))}
